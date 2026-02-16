@@ -306,7 +306,7 @@ def fastapi_app():
     from pydantic import BaseModel
 
     app_fastapi = FastAPI(
-        title="ATTI Voice Pipeline",
+        title="Agent Voice Pipeline",
         version="1.0",
         description="Pipeline completo de processamento de voz (ASR + Orquestrador + TTS)",
     )
@@ -401,7 +401,7 @@ def fastapi_app():
             "description": "Pipeline completo de processamento de voz",
             "components": {
                 "asr": "Whisper Large-V3",
-                "orchestrator": "ATTI Orchestrator",
+                "orchestrator": "Agent Orchestrator",
                 "tts": "pyttsx3",
             },
             "supported_languages": ["pt", "en", "es", "fr", "de", "it", "ja", "zh"],

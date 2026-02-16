@@ -1,5 +1,5 @@
 """
-ATTI Orchestrator API - Fase B com Endpoints HTTP
+Agent Orchestrator API - Agente Conversacional Multimodal
 Integração RAG + LLM + Security com endpoints FastAPI
 """
 
@@ -25,9 +25,13 @@ logger = logging.getLogger(__name__)
 # CONFIGURAÇÃO
 # ============================================================================
 
-FAISS_INDEX_PATH = "/home/ubuntu/atti-commercial-prod/data/embeddings/faiss_index.bin"
-EMBEDDINGS_PATH = "/home/ubuntu/atti-commercial-prod/data/embeddings/embeddings.npy"
-METADATA_PATH = "/home/ubuntu/atti-commercial-prod/data/embeddings/embeddings_metadata.json"
+# Caminhos dos arquivos (customize conforme necessário)
+FAISS_INDEX_PATH = os.getenv('FAISS_INDEX_PATH', './faiss_index.pkl')
+EMBEDDINGS_PATH = os.getenv('EMBEDDINGS_PATH', './embeddings.npy')
+METADATA_PATH = os.getenv('METADATA_PATH', './embeddings_metadata.json')
+
+# Configuração do modelo LLM
+MODEL_LLM = os.getenv('MODEL_LLM', 'nvidia/nemotron-3-nano-30b')
 
 # ============================================================================
 # MODELOS PYDANTIC
@@ -102,17 +106,17 @@ class DataLoader:
                 self.qnas = [
                     QnA(
                         id=1,
-                        pergunta="Qual é a alíquota do IBS em 2026?",
-                        resposta="A alíquota do IBS (Imposto sobre Bens e Serviços) em 2026 é de 27%, conforme a Reforma Tributária.",
-                        categoria="Impostos",
-                        fonte="Lei Complementar 214/2025"
+                        pergunta="Qual é o seu nome?",
+                        resposta="Sou um agente conversacional inteligente criado a partir do template ATTI.",
+                        categoria="Geral",
+                        fonte="Template ATTI"
                     ),
                     QnA(
                         id=2,
-                        pergunta="Como funciona o crédito do IBS?",
-                        resposta="O crédito do IBS funciona como um imposto sobre valor agregado, permitindo o crédito de impostos pagos nas etapas anteriores.",
-                        categoria="Créditos",
-                        fonte="Reforma Tributária 2026"
+                        pergunta="Como você funciona?",
+                        resposta="Utilizo busca semântica (FAISS) para encontrar respostas relevantes na base de conhecimento, e um LLM para gerar respostas contextualizadas.",
+                        categoria="Geral",
+                        fonte="Template ATTI"
                     )
                 ]
                 self.loaded = True
@@ -179,8 +183,8 @@ def fastapi_app():
     """FastAPI app com endpoints do orquestrador"""
     
     fastapi_app = FastAPI(
-        title="ATTI Orchestrator API",
-        description="Orquestrador RAG + LLM para ATTI Dashboard",
+    title="Agent Orchestrator API",
+    description="Orquestrador RAG + LLM para agentes conversacionais",
         version="1.0"
     )
     
@@ -220,7 +224,7 @@ def fastapi_app():
                 # Resposta padrão
                 response_text = (
                     "Desculpe, não encontrei informações específicas sobre sua pergunta. "
-                    "Por favor, reformule sua pergunta ou consulte a documentação da Reforma Tributária 2026."
+                    "Por favor, reformule sua pergunta ou consulte a base de conhecimento."
                 )
                 sources = []
                 confidence = 0.3
@@ -245,7 +249,7 @@ def fastapi_app():
     async def info():
         """Informações do orquestrador"""
         return {
-            "name": "ATTI Orchestrator API",
+            "name": "Agent Orchestrator API",
             "version": "1.0",
             "status": "running",
             "qnas_loaded": len(data_loader.qnas),
