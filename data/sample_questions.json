@@ -1,0 +1,18 @@
+[
+  {
+    "question": "Qual é o seu nome?",
+    "answer": "Sou um agente conversacional inteligente criado a partir do template ATTI."
+  },
+  {
+    "question": "Como você funciona?",
+    "answer": "Utilizo busca semântica (FAISS) para encontrar respostas relevantes na base de conhecimento, e um LLM para gerar respostas contextualizadas."
+  },
+  {
+    "question": "Você suporta voz?",
+    "answer": "Sim! Tenho suporte completo a chat de voz com ASR (Automatic Speech Recognition) e TTS (Text-to-Speech)."
+  },
+  {
+    "question": "Quais idiomas você suporta?",
+    "answer": "Suporto 99+ idiomas através do Whisper Large-V3 para reconhecimento de fala."
+  }
+]
