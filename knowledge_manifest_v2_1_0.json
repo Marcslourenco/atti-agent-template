@@ -1,0 +1,131 @@
+{
+  "version": "2.1.0",
+  "core_compatibility": "v2.0.0",
+  "total_packages": 9,
+  "total_blocks": 1425,
+  "last_update": "2026-02-25T00:00:00Z",
+  "packages": [
+    {
+      "segmento": "Hospital Privado",
+      "file": "knowledge_packages/hospital_privado_v2_1_0.json",
+      "total_blocks": 152,
+      "hash_integridade": "e190c5825f3e5be6126f762407bc28728d1db66e2904b6acbaee665a83632c8a",
+      "prioridade_sistema": 0.95,
+      "segment_key": "HSP",
+      "file_size_kb": 170.38,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "Concessionária de Veículos",
+      "file": "knowledge_packages/concessionaria_veiculos_v2_1_0.json",
+      "total_blocks": 118,
+      "hash_integridade": "8893a099e482315684a9bc4a2c06fae16cf89e7a6a89e437e2338b4ac8a85b26",
+      "prioridade_sistema": 0.8,
+      "segment_key": "CON-VEI",
+      "file_size_kb": 130.64,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "hoteleiro",
+      "file": "knowledge_packages/hotelaria_v2_1_0.json",
+      "total_blocks": 172,
+      "hash_integridade": "f0f4fda3ca17e12dd37f44f1ff741b596517ed0db160ded9597f31a9fb987b0d",
+      "prioridade_sistema": 0.75,
+      "segment_key": "HOT",
+      "file_size_kb": 158.32,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "Shopping Center",
+      "file": "knowledge_packages/shopping_center_v2_1_0.json",
+      "total_blocks": 170,
+      "hash_integridade": "17fd0ee3915f6bec8513a0f75282f2b42ce6fbcc5e0da328480ecbf39b22a2f7",
+      "prioridade_sistema": 0.78,
+      "segment_key": "SHC",
+      "file_size_kb": 169.13,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "Prefeitura Municipal",
+      "file": "knowledge_packages/prefeitura_municipal_v2_1_0.json",
+      "total_blocks": 185,
+      "hash_integridade": "8a09d0b3505ab343d553bc136dc2a88e4e13f36c7323d02ddb0612c70f54849b",
+      "prioridade_sistema": 0.85,
+      "segment_key": "PRE",
+      "file_size_kb": 195.77,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "educacao_superior",
+      "file": "knowledge_packages/universidade_privada_v2_1_0.json",
+      "total_blocks": 141,
+      "hash_integridade": "4da70a4fc6359f526a761b0c78e44bb7fb0832d227599d18d2578ea9b71f1fe8",
+      "prioridade_sistema": 0.82,
+      "segment_key": "EDU",
+      "file_size_kb": 137.33,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "Clínica Odontológica",
+      "file": "knowledge_packages/clinica_odontologica_v2_1_0.json",
+      "total_blocks": 143,
+      "hash_integridade": "b1fcf811d14e91fcd68a98504fcdf2da8ccc8d1329298589daa18bda5cfce90b",
+      "prioridade_sistema": 0.83,
+      "segment_key": "ODO",
+      "file_size_kb": 133.11,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "Energia Solar Fotovoltaica",
+      "file": "knowledge_packages/energia_solar_v2_1_0.json",
+      "total_blocks": 174,
+      "hash_integridade": "b2c04c995077f706cb75dd92adadccd476bc699d15c4be949fd042c23de92c95",
+      "prioridade_sistema": 0.77,
+      "segment_key": "ENE-SOL",
+      "file_size_kb": 161.74,
+      "duplicates_removed": 0
+    },
+    {
+      "segmento": "Estudante de Medicina",
+      "file": "knowledge_packages/estudante_medicina_v2_1_0.json",
+      "total_blocks": 170,
+      "hash_integridade": "2909ced6e0c1b91bb2d46670e433e39aadd715fb460e1c60cf90964ca8b27544",
+      "prioridade_sistema": 0.8,
+      "segment_key": "MED",
+      "file_size_kb": 160.64,
+      "duplicates_removed": 0
+    }
+  ],
+  "vectorization_strategy": {
+    "embedding_model_recommendation": "text-embedding-3-large (OpenAI) ou sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (HuggingFace)",
+    "chunking_strategy": "semantic_atomic — 1 tema por bloco, 1 intenção por bloco, já pré-segmentado",
+    "fallback_rule_engine": true,
+    "index_type_recommendation": "FAISS IndexFlatIP ou Pinecone p2 (production)",
+    "retrieval_mode": "hybrid — vector_similarity + rule_engine_filter",
+    "context_window_tokens": 512,
+    "overlap_tokens": 64
+  },
+  "compatibility": {
+    "core_version": "v2.0.0",
+    "soulx": "unmodified",
+    "rule_engine": "unmodified",
+    "analytics_engine": "unmodified",
+    "platform_connector": "unmodified",
+    "backward_compatible": true
+  },
+  "statistics": {
+    "total_regulatory_blocks": 447,
+    "total_vector_ready_blocks": 1425,
+    "segments": [
+      "Hospital Privado",
+      "Concessionária de Veículos",
+      "hoteleiro",
+      "Shopping Center",
+      "Prefeitura Municipal",
+      "educacao_superior",
+      "Clínica Odontológica",
+      "Energia Solar Fotovoltaica",
+      "Estudante de Medicina"
+    ]
+  }
+}
